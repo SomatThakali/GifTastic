@@ -1,0 +1,15 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  /* position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://media.giphy.com/media/fRKbnJXLDh2nu/giphy.gif");
+  height: 50%;
+  margin-bottom: 40px; */
+}
