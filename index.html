@@ -37,23 +37,37 @@
     <title>Gif</title>
   </head>
   <body>
+    <div class="jumbotron jumbotron-fluid text-center">
+      <h1 class="display-4">GIF Search</h1>
+      <div id="buttons-view"></div>
+      <div class="container">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default "
+              >Add an animal</span
+            >
+          </div>
+          <input
+            placeholder="Animal Species"
+            id="gif-input"
+            type="text"
+            class="form-control"
+            aria-label="Default"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </div>
+        <button id="add-gif" class="btn btn-primary" type="submit">
+          submit
+        </button>
+      </div>
+    </div>
 
-      <div class="wrapper">
-          <h1>Gif Search</h1>
+    <br />
+    <div class="container">
+      <div id="gif-view" class="row"></div>
+    </div>
 
-          <div id="buttons-view"></div>
-    
-          <form id="gif-form">
-            <label for="gif-input" >Add an Animal</label>
-            <input type="text" class="pl-2" placeholder="Animal" id="gif-input" />
-            <br />
-            <input id="add-gif" type="submit" value="submit" />
-          </form>
-  
-          <div id="gif-view"></div>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="./assets/javascript/app.js"></script>
   </body>
 </html>
