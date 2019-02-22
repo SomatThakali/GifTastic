@@ -24,12 +24,10 @@ function displayGifs() {
 
       var animalImage = $("<img>");
 
-      var imgURL = results[i].images.fixed_height_still.url;
-      animalImage.attr("src", imgURL);
-
       var imgURLStill = results[i].images.fixed_height_still.url;
       var imgURLAnimate = results[i].images.fixed_height.url;
 
+      animalImage.attr("src", imgURLStill);
       animalImage.attr("data-still", imgURLStill);
       animalImage.attr("data-animate", imgURLAnimate);
 
@@ -50,17 +48,14 @@ function changeImageState() {
     function() {
       var animateImage = $(this).attr("data-animate");
       $(this).attr("src", animateImage);
-
-      console.log("STILL");
     },
     function() {
       var stillImage = $(this).attr("data-still");
       $(this).attr("src", stillImage);
-
-      console.log("MOVE");
     }
   );
 }
+
 function renderButtons() {
   $("#buttons-view").empty();
 
@@ -78,7 +73,12 @@ $("#add-gif").on("click", function(event) {
   var gif = $("#gif-input")
     .val()
     .trim();
-  gifs.push(gif);
+
+  if (gifs.indexOf(gif) === -1) {
+    gifs.push(gif);
+  } else {
+    alert(gif + " is already added. Choose another animal.");
+  }
 
   renderButtons();
   $("#gif-input").val("");
