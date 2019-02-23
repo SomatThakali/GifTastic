@@ -1,6 +1,6 @@
 .input-group {
   padding-top: 10px;
-  width: 30%;
+  width: 40%;
   margin: auto;
   font-family: "Lato", sans-serif;
 }
@@ -17,7 +17,7 @@ html {
 
 img {
   height: 220px;
-  width: 220px;
+  width: 230px;
 }
 
 p {
@@ -34,4 +34,11 @@ p {
 
 #gif-view {
   padding-bottom: 40px;
+}
+
+.jumbotron {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(" https://media.giphy.com/media/Li72TXV4NRzIA/giphy.gif");
 }
