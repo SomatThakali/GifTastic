@@ -23,7 +23,7 @@ html {
 
 .input-group {
   padding-top: 10px;
-  width: 40%;
+  width: 50%;
   margin: auto;
   font-family: "Lato", sans-serif;
 }
@@ -38,4 +38,8 @@ html {
 p {
   font-family: interface, "Helvetica Neue", helvetica, sans-serif;
   margin: 0;
+}
+
+.reset {
+  margin-left: 20px;
 }
