@@ -5,7 +5,7 @@ var gifs = [];
 function displayGifs() {
   var gif = $(this).attr("data-name");
   var queryURL =
-    "http://api.giphy.com/v1/gifs/search?q=" +
+    "https://api.giphy.com/v1/gifs/search?q=" +
     gif +
     "&apikey=YmxqI7FO8HBg0777IhN53zTCSpS5f2zO&limit=12";
 
@@ -13,34 +13,40 @@ function displayGifs() {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    $("#gif-view").empty();
-
-    var results = response.data;
-    for (var i = 0; i < results.length; i++) {
-      var gifDiv = $("<div class='col-md-3'>");
-      var rating = results[i].rating;
-      var p = $("<p class='text-center'>").text("Rating: " + rating);
-
-      gifDiv.append(p);
-
-      var animalImage = $("<img>");
-
-      var imgURLStill = results[i].images.fixed_height_still.url;
-      var imgURLAnimate = results[i].images.fixed_height.url;
-
-      animalImage.attr("src", imgURLStill);
-      animalImage.attr("data-still", imgURLStill);
-      animalImage.attr("data-animate", imgURLAnimate);
-
-      gifDiv.append(animalImage);
-      $("#gif-view").prepend(gifDiv);
-
-      // Change to either animate or still state
-      changeImageState();
-    }
+    renderGifContentArea(response);
   });
 }
 
+// This function will render the Gifs. This should be run once after an animal has been selected
+function renderGifContentArea(response) {
+  $("#gif-view").empty();
+
+  var results = response.data;
+  for (var i = 0; i < results.length; i++) {
+    var gifDiv = $("<div class='col-md-3 mb-3'>");
+    var rating = results[i].rating;
+    var p = $("<p class='text-center'>").text(`Rating: ${rating}`);
+
+    gifDiv.append(p);
+
+    var animalImage = $("<img>");
+
+    var imgURLStill = results[i].images.fixed_height_still.url;
+    var imgURLAnimate = results[i].images.fixed_height.url;
+
+    animalImage.attr("src", imgURLStill);
+    animalImage.attr("data-still", imgURLStill);
+    animalImage.attr("data-animate", imgURLAnimate);
+
+    gifDiv.append(animalImage);
+    $("#gif-view").prepend(gifDiv);
+
+    // Change to either animate or still state
+    changeImageState();
+  }
+}
+
+// Function to handle the change in Gifs image state
 function changeImageState() {
   $("img").hover(
     function() {
@@ -54,11 +60,12 @@ function changeImageState() {
   );
 }
 
+// This function will render the Gifs. This should be run once after an animal has been added to Gifs array
 function renderButtons() {
   $("#buttons-view").empty();
 
   for (var i = 0; i < gifs.length; i++) {
-    var btn = $("<button class='btn btn-primary mr-2'>");
+    var btn = $("<button class='btn btn-primary mr-2 mb-2'>");
     btn.addClass("gif-btn");
     btn.attr("data-name", gifs[i]);
     btn.text(gifs[i]);
@@ -66,7 +73,8 @@ function renderButtons() {
   }
 }
 
-$("#add-gif").on("click touchstart", function(event) {
+// This function will store the unique animals
+$("#add-gif").on("click", function(event) {
   event.preventDefault();
   var gif = $("#gif-input")
     .val()
@@ -78,8 +86,8 @@ $("#add-gif").on("click touchstart", function(event) {
     alert(gif + " is already added. Choose another animal.");
   }
 
-  renderButtons();
   $("#gif-input").val("");
+  renderButtons();
   submitButtonDisable();
 });
 

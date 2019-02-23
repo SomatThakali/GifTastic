@@ -1,8 +1,6 @@
-.input-group {
-  padding-top: 10px;
-  width: 40%;
-  margin: auto;
-  font-family: "Lato", sans-serif;
+body,
+html {
+  height: 100%;
 }
 
 .btn {
@@ -10,9 +8,17 @@
   height: 40px;
 }
 
-body,
-html {
-  height: 100%;
+#buttons-view {
+  padding-bottom: 20px;
+}
+
+.display-4 {
+  padding-bottom: 20px;
+  font-family: "Press Start 2P", cursive;
+}
+
+#gif-view {
+  padding-bottom: 40px;
 }
 
 img {
@@ -20,20 +26,11 @@ img {
   width: 230px;
 }
 
-p {
-  text-align: center;
-}
-
-.display-4 {
-  padding-bottom: 20px;
-}
-
-#buttons-view {
-  padding-bottom: 20px;
-}
-
-#gif-view {
-  padding-bottom: 40px;
+.input-group {
+  padding-top: 10px;
+  width: 40%;
+  margin: auto;
+  font-family: "Lato", sans-serif;
 }
 
 .jumbotron {
@@ -41,4 +38,10 @@ p {
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(" https://media.giphy.com/media/Li72TXV4NRzIA/giphy.gif");
+}
+
+p {
+  font-family: interface, "Helvetica Neue", helvetica, sans-serif;
+  text-align: center;
+  margin: 0;
 }
