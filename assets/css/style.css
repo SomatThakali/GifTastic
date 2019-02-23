@@ -21,11 +21,6 @@ html {
   padding-bottom: 40px;
 }
 
-img {
-  height: 220px;
-  width: 230px;
-}
-
 .input-group {
   padding-top: 10px;
   width: 40%;
@@ -42,6 +37,5 @@ img {
 
 p {
   font-family: interface, "Helvetica Neue", helvetica, sans-serif;
-  text-align: center;
   margin: 0;
 }

@@ -37,7 +37,7 @@ function renderGifContentArea(response) {
     animalImage.attr("src", imgURLStill);
     animalImage.attr("data-still", imgURLStill);
     animalImage.attr("data-animate", imgURLAnimate);
-
+    animalImage.attr("class", "img-fluid", "img-thumbnail");
     gifDiv.append(animalImage);
     $("#gif-view").prepend(gifDiv);
 
