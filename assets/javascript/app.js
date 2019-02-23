@@ -20,6 +20,7 @@ function displayGifs() {
       var gifDiv = $("<div class='col-md-3'>");
       var rating = results[i].rating;
       var p = $("<p class='text-center'>").text("Rating: " + rating);
+
       gifDiv.append(p);
 
       var animalImage = $("<img>");
@@ -34,12 +35,9 @@ function displayGifs() {
       gifDiv.append(animalImage);
       $("#gif-view").prepend(gifDiv);
 
-      // Change to either animate or still
+      // Change to either animate or still state
       changeImageState();
     }
-
-    console.log(response);
-    // console.log(imgURL);
   });
 }
 
@@ -68,7 +66,7 @@ function renderButtons() {
   }
 }
 
-$("#add-gif").on("click", function(event) {
+$("#add-gif").on("click touchstart", function(event) {
   event.preventDefault();
   var gif = $("#gif-input")
     .val()
